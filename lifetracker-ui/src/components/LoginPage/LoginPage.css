@@ -1,4 +1,4 @@
-.Login {
+.login-page {
     min-height: calc(100vh - 100px);
     height: 100%;
     max-height: calc(100vh - 100px);
@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
   }
-  .Login .card {
+  .login-page .login-form {
     min-height: 600px;
     width: 520px;
     padding: 24px 36px 0 36px;
@@ -17,17 +17,17 @@
     flex-direction: column;
     align-items: center;
   }
-  .Login .card .error {
+  .login-page .login-form .error {
     color: #fe3210;
   }
-  .Login .card h2 {
+  .login-page .login-form h2 {
     font-size: 42px;
     margin-bottom: 4px;
     font-weight: 600;
     color: #fff;
   }
   
-  .Login .card .form {
+  .login-page .login-form .form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -35,18 +35,18 @@
     padding-bottom: 10px;
     color: #fff;
   }
-  .Login .card .form .input-field {
+  .login-page .login-form .form .form-input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     margin: 8px 0;
   }
-  .Login .card .form .input-field label {
+  .login-page .login-form .form .form-input label {
     margin-bottom: 5px;
     color: #fff;
   }
-  .Login .card .form .input-field input {
+  .login-page .login-form .form .form-input input {
     height: 60px;
     padding: 0 15px;
     font-size: 16px;
@@ -55,10 +55,10 @@
     background: transparent;
     color: #fff;
   }
-  .Login .card .form .input-field input::placeholder {
+  .login-page .login-form .form .form-input input::placeholder {
     color: #e4e4e4;
   }
-  .Login .card .form .btn {
+  .login-page .login-form .form .btn {
     width: 100%;
     height: 70px;
     color: white;
@@ -71,7 +71,7 @@
     cursor: pointer;
     margin-top: 15px;
   }
-  .Login .card .footer {
+  .login-page .login-form .footer {
     border-top: solid 1px #e4e4e4;
     margin-top: auto;
     display: flex;
@@ -81,7 +81,7 @@
     width: 100%;
     color: #fff;
   }
-  .Login .card .footer p {
+  .login-page .login-form .footer p {
     color: #fff;
   }
   /* .Login .forgot-link {

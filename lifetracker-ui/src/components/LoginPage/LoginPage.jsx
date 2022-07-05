@@ -3,6 +3,7 @@ import "../LoginPage/LoginPage.css"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import LoginForm from "./LoginForm/LoginForm"
 
 export default function LoginPage(props) {
     const navigate = useNavigate()
@@ -35,7 +36,7 @@ export default function LoginPage(props) {
           if (res?.data) {
             props.setLoggedIn(true)
             setIsLoading(false)
-            navigate("/")
+            navigate("/activity")
           } else {
             setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
             setIsLoading(false)
@@ -50,41 +51,14 @@ export default function LoginPage(props) {
 
 
     return (
-        <div className="Login">
-            <div className="card">
-                <h2>Login</h2>
-                <br />
-                <div className="form">
-                    <div className="input-field">
-                        <label for="email">Email</label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="user@gmail.com" 
-                            value={form.email}
-                            onChange={handleOnInputChange} 
-                        />
-                    </div>
-                    <div className="input-field">
-                        <label for="password">Password</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            placeholder="password" 
-                            value={form.password}
-                            onChange={handleOnInputChange}
-                        />
-                    </div>
-                    <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
-                        {isLoading ? "Loading..." : "Login"}
-                    </button>
-                </div>
-                <div className="footer">
-                    <p>
-                        Don't have an account? Sign up <Link to="/register">here</Link>
-                    </p>
-                </div>
-            </div>
+        <div className="login-page">
+            <LoginForm 
+              form = {form} 
+              handleOnInputChange = {handleOnInputChange}
+              handleOnSubmit = {handleOnSubmit}
+              isLoading = {isLoading}
+              
+              />
         </div>
     )
 }

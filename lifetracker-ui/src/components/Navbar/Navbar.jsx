@@ -4,8 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 export default function Navbar(props) {
     const navigate = useNavigate()
     const handleOnLogout = () => {
-        setLoggedIn(false)
-        navigate("/")
+        props.setLoggedIn(false)      
     }
 
     if(props.loggedIn) {
@@ -40,8 +39,11 @@ export default function Navbar(props) {
                                 Sleep
                             </Link>
                         </li>
-                        <li className="secondary btn" onClick={handleOnLogout}>
-                            <span>Logout</span>
+                        <li className="secondary btn"  onClick={handleOnLogout}>
+                            <Link to="/">
+                                Logout
+                            </Link>
+                            
                         </li>
                     </ul>
                 </div>

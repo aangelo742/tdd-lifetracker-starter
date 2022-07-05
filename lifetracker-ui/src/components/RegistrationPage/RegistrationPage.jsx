@@ -3,6 +3,7 @@ import "../RegistrationPage/RegistrationPage.css"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import RegistrationForm from "./RegistrationForm/RegistrationForm"
 
 export default function RegistrationPage(props) {
     const [form, setForm] = useState({
@@ -85,87 +86,15 @@ export default function RegistrationPage(props) {
     }
 
     return (
-        <div className="Register">
-            <div className="card">
-                <h2>Register</h2>
-
-                {errors.form && <span className="error">{errors.form}</span>}
-                <br/>
-                <div className="form">
-                    <div className="input-field">
-                        <label for="email">Email</label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="Enter a valid email"
-                            value={form.email}
-                            onChange={handleOnInputChange} 
-                        />
-                        {errors.email && <span className="error">{errors.email}</span>}
-                    </div>
-                    <div className="input-field">
-                        <label for="username">Username</label>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            placeholder="your_username" 
-                            value={form.username}
-                            onChange={handleOnInputChange}
-                            />
-                    </div>
-                        {errors.username && <span className="error">{errors.username}</span>}
-                    <div className="split-input-field">
-                        <div className="input-field">
-                            <input 
-                                type="text" 
-                                name="firstName" 
-                                placeholder="First Name" 
-                                value={form.firstName}
-                                onChange={handleOnInputChange} 
-                            />
-                            {errors.firstName && <span className="error">{errors.firstName}</span>}
-                        </div>
-                        <div className="input-field">
-                            <input 
-                                type="text" 
-                                name="lastName" 
-                                placeholder="Last Name" 
-                                value={form.lastName}
-                                onChange={handleOnInputChange} 
-                            />
-                            {errors.lastName && <span className="error">{errors.lastName}</span>}
-                        </div>
-                    </div>
-                    <div className="input-field">
-                        <label for="password">Password</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            placeholder="Enter a secure password" 
-                            value={form.password}
-                            onChange={handleOnInputChange}
-                        />
-                        {errors.password && <span className="error">{errors.password}</span>}
-                    </div>
-                    <div className="input-field">
-                        <label for="passwordConfirm">Confirm Password</label>
-                        <input 
-                            type="password" 
-                            name="passwordConfirm" 
-                            placeholder="Confirm your password" 
-                            value={form.passwordConfirm}
-                            onChange={handleOnInputChange}
-                        />
-                        {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
-                    </div>
-                    <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
-                        {isLoading ? "Loading..." : "Create Account"}
-                    </button>
-                </div>
-                <div className="footer">
-                    <p>Already have an account? Login <Link to="/login">here</Link></p>
-                </div>
-            </div>
+        <div className="registration-page">
+            <RegistrationForm
+                handleOnSubmit = {handleOnSubmit}
+                handleOnInputChange = {handleOnInputChange}
+                isLoading = {isLoading}
+                errors = {errors}
+                form = {form}
+                
+            />
         </div>
     )
 }

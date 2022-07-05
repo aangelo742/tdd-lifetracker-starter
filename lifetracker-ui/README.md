@@ -1,1 +1,0 @@
-# Lifetracker React UI
