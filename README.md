@@ -40,9 +40,7 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+![project_3_gif_1](https://user-images.githubusercontent.com/83144033/177596756-fb3c5317-97c4-4c73-a966-f5d928fefc97.gif)
 
 > Data is the new oil - Clive Humbly
 
