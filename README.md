@@ -42,6 +42,8 @@ Implement any of the following features to improve the application:
 
 ![project_3_gif_1](https://user-images.githubusercontent.com/83144033/177596756-fb3c5317-97c4-4c73-a966-f5d928fefc97.gif)
 
+https://www.loom.com/share/703bd194058c4ff3a45ee68cd373d97b
+
 > Data is the new oil - Clive Humbly
 
 Everywhere around us is data waiting to be collected and utilized. In recent years we've seen the rise of applications and services that exist to quantify concepts that were previously hard to capture. FitBit, Apple Health, and Woop are all $1 billion dollar services to offer tracking statistics about how we live our lives. The LifeTracker app you'll be building will do exactly that - track your life by quantifying your activity.
