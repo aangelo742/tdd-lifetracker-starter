@@ -42,7 +42,9 @@ Implement any of the following features to improve the application:
 
 ![project_3_gif_1](https://user-images.githubusercontent.com/83144033/177596756-fb3c5317-97c4-4c73-a966-f5d928fefc97.gif)
 
-https://www.loom.com/share/703bd194058c4ff3a45ee68cd373d97b
+
+
+[LOOM](https://www.loom.com/share/703bd194058c4ff3a45ee68cd373d97b)
 
 > Data is the new oil - Clive Humbly
 
