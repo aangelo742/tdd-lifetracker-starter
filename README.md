@@ -19,7 +19,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
-- [ ] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge. 
 
@@ -40,9 +40,11 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+![project_3_gif_1](https://user-images.githubusercontent.com/83144033/177596756-fb3c5317-97c4-4c73-a966-f5d928fefc97.gif)
 
-`ADD_EMBEDDED_CODE_HERE`
+
+
+[LOOM](https://www.loom.com/share/703bd194058c4ff3a45ee68cd373d97b)
 
 > Data is the new oil - Clive Humbly
 
@@ -596,14 +598,14 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Commit all work to `git`
   - [ ] In any new test file, make sure to import these functions and use them with the correct `jest` lifecycle hooks
 - **Authentication**
-  - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
-  - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
-      - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+  - [x] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
+  - [x] Add new directories for `models`, `routes`, and `middleware`
+  - [x] The **User** model
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+      - [x] The `User` model should have **at least** the following static methods:
+        - [x] `login`
+        - [x] `register`
+        - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -618,32 +620,32 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] A valid email returns a user from the database
         - [ ] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
-    - [ ] In the `models/user.js` file:
-      - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
-      - [ ] Implement the features outlined in the tests until they're all passing.
-  - [ ] Commit all work to `git`
-  - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
-    - [ ] In the `utils/tokens.test.js` file:
-      - [ ] Write test cases for:
-        - [ ] Can create valid JWT tokens for user payloads
-        - [ ] Can extract a payload from a valid JWT with the correct secret
-        - [ ] No payload gets returned when invalid tokens are parsed
-    - [ ] In the `utils/tokens.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
-  - [ ] Commit all work to `git`
-  - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
-      - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
-        - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
-        - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
-      - [ ] One middleware will be responsible for ensuring that an authenticated user exists:
-        - [ ] Checking that a valid user exists on the response's `locals` property
-        - [ ] If one does, the middleware should simply call next
-        - [ ] If no valid user exists, it should throw an `UnauthorizedError`
+    - [x] In the `models/user.js` file:
+      - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
+      - [x] Implement the features outlined in the tests until they're all passing.
+  - [x] Commit all work to `git`
+  - [x] The **tokens** utility functions
+    - [x] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+      - [x] At the bare minimum, two functions will be needed:
+        - [x] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+    - [x] In the `utils/tokens.test.js` file:
+      - [x] Write test cases for:
+        - [x] Can create valid JWT tokens for user payloads
+        - [x] Can extract a payload from a valid JWT with the correct secret
+        - [x] No payload gets returned when invalid tokens are parsed
+    - [x] In the `utils/tokens.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
+  - [x] Commit all work to `git`
+  - [x] The **security** middleware
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+      - [x] One middleware will be responsible for extracting a user from a valid JWT in the request:
+        - [x] Checking the `Authentication` header of each request for the existence of a JWT.
+        - [x] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
+      - [x] One middleware will be responsible for ensuring that an authenticated user exists:
+        - [x] Checking that a valid user exists on the response's `locals` property
+        - [x] If one does, the middleware should simply call next
+        - [x] If no valid user exists, it should throw an `UnauthorizedError`
     - [ ] In the `middleware/security.test.js` file:
       - [ ] Test the `Authentication` header parsing middleware
         - [ ] Write test cases for:
@@ -658,18 +660,18 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
-  - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
-      - [ ] A new Express router should be created. It should handle:
-        - [ ] A `GET` request to the `/me` endpoint
-          - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/login` endpoint
-          - [ ] It should accept a request body with `email` and `password` keys
-          - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/register` endpoint
-          - [ ] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
-          - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-      - [ ] It should be mounted at the `/auth` endpoint in the `app.js` file
+  - [x] The **/auth** routes
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+      - [x] A new Express router should be created. It should handle:
+        - [x] A `GET` request to the `/me` endpoint
+          - [x] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/login` endpoint
+          - [x] It should accept a request body with `email` and `password` keys
+          - [x] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/register` endpoint
+          - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
+          - [x] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+      - [x] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:

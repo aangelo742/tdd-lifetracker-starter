@@ -4,6 +4,7 @@ const cors = require("cors")
 const { NotFoundError } = require("./utils/errors")
 const security = require("./middleware/security")
 const authRouter = require("./routes/auth")
+const nutritionRouter = require("./routes/nutrition")
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRouter)
+app.use("/nutrition", nutritionRouter)
 
 /* Handle all 404 errors that weren't matched by a route */
 app.use((req, res, next) => {

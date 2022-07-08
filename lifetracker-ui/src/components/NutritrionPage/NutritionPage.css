@@ -7,6 +7,7 @@
     flex-direction: column;
     overflow-x: hidden;
     background: #2c4047;
+    color: #fff;
   }
   .NutritionPage .content {
     width: 100%;

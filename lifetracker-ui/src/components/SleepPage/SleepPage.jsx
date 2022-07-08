@@ -1,16 +1,17 @@
 import * as React from "react"
+import "./SleepPage.css"
 
 export default function SleepPage(props) {
     return (
         <div className="SleepPage">
         <div className="Banner">
-            <h1>Nutrition</h1>
+            <h1>Sleep</h1>
         </div>
         <div className="content">
             <div className="SleepOverview">
                 <div className="header">
                     <h3>Overview</h3>
-                    <button className="Button outline small outline aqua ">Record Nutrition</button>
+                    <button className="Button outline small outline aqua ">Record Sleep</button>
                 </div>
                 <div className="feed">
                     <div className="empty">

@@ -1,10 +1,14 @@
 import * as React from "react"
 import "./Navbar.css"
 import { Link, useNavigate } from "react-router-dom"
+import apiClient from "../../../services/apiClient"
+
 export default function Navbar(props) {
     const navigate = useNavigate()
-    const handleOnLogout = () => {
-        props.setLoggedIn(false)      
+    const handleOnLogout = async () => {
+        await apiClient.logoutUser()
+        props.setLoggedIn(false)
+              
     }
 
     if(props.loggedIn) {
@@ -39,11 +43,13 @@ export default function Navbar(props) {
                                 Sleep
                             </Link>
                         </li>
+                        <li>
+                            Welcome, {props.user.username}
+                        </li>
                         <li className="secondary btn"  onClick={handleOnLogout}>
                             <Link to="/">
                                 Logout
                             </Link>
-                            
                         </li>
                     </ul>
                 </div>

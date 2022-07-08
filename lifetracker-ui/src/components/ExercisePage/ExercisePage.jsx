@@ -5,13 +5,13 @@ export default function ExercisePage(props) {
     return (
         <div className="ExercisePage">
         <div className="Banner">
-            <h1>Nutrition</h1>
+            <h1>Exercise</h1>
         </div>
         <div className="content">
             <div className="ExerciseOverview">
                 <div className="header">
                     <h3>Overview</h3>
-                    <button className="Button outline small outline aqua ">Record Nutrition</button>
+                    <button className="Button outline small outline aqua ">Record Exercise</button>
                 </div>
                 <div className="feed">
                     <div className="empty">

@@ -1,0 +1,21 @@
+ .nutrition-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 700px;
+    padding-bottom: 10px;
+    color: #fff;
+    margin: 0 auto;
+  }
+ .nutrition-form .split-input-field {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+  }
+ .nutrition-form button {
+    flex: 1;
+    width: 100%;
+    margin-top: 20px;
+  }

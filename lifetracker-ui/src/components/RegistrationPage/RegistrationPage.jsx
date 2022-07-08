@@ -4,6 +4,7 @@ import { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import RegistrationForm from "./RegistrationForm/RegistrationForm"
+import apiClient from "../../../services/apiClient"
 
 export default function RegistrationPage(props) {
     const [form, setForm] = useState({
@@ -57,32 +58,42 @@ export default function RegistrationPage(props) {
             setErrors((e) => ({ ...e, passwordConfirm: null }))
         }
 
-        try {
-            const res = await axios.post("http://localhost:3001/auth/register", {
-                username: form.username,
-                password: form.password,
-                firstName: form.firstName,
-                lastName: form.lastName,
-                email: form.email,
-            })
-    
-            if(res?.data?.user) {
-                console.log("res.data: ", res.data)
-                //setAppState(res.data)
-                setIsLoading(false)
-                props.setLoggedIn(true)
-                navigate("/")
-                
-            } else {
-                setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-                setIsLoading(false)
-            }
-        } catch (err) {
-            console.log(err)
-            const message= err?.response?.data?.error?.message
-            setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-            setIsLoading(false)
+        const { data, error } = await apiClient.signupUser({ username: form.username, password: form.password, firstName: form.firstName, lastName: form.lastName, email: form.email})
+        if (error) setErrors((e) => ({ ...e, form: error }))
+        if (data?.user) {
+          props.setUser(data.user)
+          apiClient.setToken(data.token)
+          setIsLoading(false)
+          props.setLoggedIn(true)
+          navigate("/activity")
         }
+
+        // try {
+        //     const res = await axios.post("http://localhost:3001/auth/register", {
+        //         username: form.username,
+        //         password: form.password,
+        //         firstName: form.firstName,
+        //         lastName: form.lastName,
+        //         email: form.email,
+        //     })
+    
+        //     if(res?.data?.user) {
+        //         console.log("res.data: ", res.data)
+        //         //setAppState(res.data)
+        //         setIsLoading(false)
+        //         props.setLoggedIn(true)
+        //         navigate("/")
+                
+        //     } else {
+        //         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+        //         setIsLoading(false)
+        //     }
+        // } catch (err) {
+        //     console.log(err)
+        //     const message= err?.response?.data?.error?.message
+        //     setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+        //     setIsLoading(false)
+        // }
     }
 
     return (

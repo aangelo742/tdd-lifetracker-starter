@@ -3,7 +3,9 @@ import "../LoginPage/LoginPage.css"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import apiClient from "../../../services/apiClient"
 import LoginForm from "./LoginForm/LoginForm"
+//import { useAuthContext } from "../../../../contexts/Auth"
 
 export default function LoginPage(props) {
     const navigate = useNavigate()
@@ -13,6 +15,8 @@ export default function LoginPage(props) {
         email: "",
         password: "",
     })
+
+    //const { user, setUser } = useAuthContext()
 
     const handleOnInputChange = (event) => {
         if (event.target.name === "email") {
@@ -27,26 +31,35 @@ export default function LoginPage(props) {
     }
 
     const handleOnSubmit = async (e) => {
-        e.preventDefault()
         setIsLoading(true)
         setErrors((e) => ({ ...e, form: null }))
-    
-        try {
-          const res = await axios.post(`http://localhost:3001/auth/login`, form)
-          if (res?.data) {
-            props.setLoggedIn(true)
-            setIsLoading(false)
-            navigate("/activity")
-          } else {
-            setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-            setIsLoading(false)
-          }
-        } catch (err) {
-          console.log(err)
-          const message = err?.response?.data?.error?.message
-          setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+
+        const { data, error } = await apiClient.loginUser({ email: form.email, password: form.password })
+        if (error) setErrors((e) => ({ ...e, form: error }))
+        if (data?.user) {
+          props.setUser(data.user)
+          apiClient.setToken(data.token)
           setIsLoading(false)
+          props.setLoggedIn(true)
+          navigate("/activity")
         }
+    
+        // try {
+        //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
+        //   if (res?.data) {
+        //     props.setLoggedIn(true)
+        //     setIsLoading(false)
+        //     navigate("/activity")
+        //   } else {
+        //     setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
+        //     setIsLoading(false)
+        //   }
+        // } catch (err) {
+        //   console.log(err)
+        //   const message = err?.response?.data?.error?.message
+        //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+        //   setIsLoading(false)
+        // }
       }
 
 
