@@ -12,12 +12,10 @@ import NotFound from "../NotFound/NotFound"
 import apiClient from "../../../services/apiClient"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { useState } from "react"
-//import { AuthContextProvider, useAuthContext } from "../../../../contexts/Auth"
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  //const { user, setUser } = useAuthContext()
 
   return (
       <div className="app">
