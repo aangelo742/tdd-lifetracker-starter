@@ -67,33 +67,6 @@ export default function RegistrationPage(props) {
           props.setLoggedIn(true)
           navigate("/activity")
         }
-
-        // try {
-        //     const res = await axios.post("http://localhost:3001/auth/register", {
-        //         username: form.username,
-        //         password: form.password,
-        //         firstName: form.firstName,
-        //         lastName: form.lastName,
-        //         email: form.email,
-        //     })
-    
-        //     if(res?.data?.user) {
-        //         console.log("res.data: ", res.data)
-        //         //setAppState(res.data)
-        //         setIsLoading(false)
-        //         props.setLoggedIn(true)
-        //         navigate("/")
-                
-        //     } else {
-        //         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-        //         setIsLoading(false)
-        //     }
-        // } catch (err) {
-        //     console.log(err)
-        //     const message= err?.response?.data?.error?.message
-        //     setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-        //     setIsLoading(false)
-        // }
     }
 
     return (
