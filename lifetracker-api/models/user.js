@@ -11,7 +11,7 @@ class User {
             username: user.username,
             firstName: user.first_name,
             lastName: user.last_name,
-
+            createdAt: user.created_at
         }
     }
     static async login(credentials) {

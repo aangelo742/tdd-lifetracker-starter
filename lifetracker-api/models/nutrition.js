@@ -3,24 +3,27 @@ const { BadRequestError, NotFoundError } = require("../utils/errors")
 
 class Nutrition {
     static async createNutrition({ nutritionPost, user }) {
-        const requiredFields = ["name", "category", "calories", "image_url"]
+        const requiredFields = ["name", "category", "calories", "imageUrl"]
         requiredFields.forEach((field) => {
-            
+            if(!nutritionPost.hasOwnProperty(field)) {
+                throw new BadRequestError(`Missing ${field} in request body.`)
+            }
         })
 
         const results = await db.query(
             `
             INSERT INTO nutrition (name, category, calories, image_url, user_id)
-            VALUES ($1, $2, $3, $4, (SELECT id FROM users WHERE username = $5))
+            VALUES ($1, $2, $3, $4, (SELECT id FROM users WHERE email = $5)
+            )
             RETURNING id,
                       name,
                       category,
                       calories,
                       image_url AS "imageUrl",
-                      $5 AS "username"
+                      user_id AS "userId"
 
             `,
-            [nutritionPost.name, nutritionPost.category, nutritionPost.calories, nutritionPost.imageUrl, user.username]
+            [nutritionPost.name, nutritionPost.category, nutritionPost.calories, nutritionPost.imageUrl, user.email]
         )
 
         return results.rows[0]
@@ -53,22 +56,16 @@ class Nutrition {
     }
 
     static async listNutritionForUser(user) {
+        console.log(user)
         const results = await db.query(
             `
-            SELECT n.id,
-                   n.name,
-                   n.category,
-                   n.calories,
-                   n.image_url AS "imageUrl",
-                   u.username AS "username",
-            FROM nutrition AS n
-                LEFT JOIN users AS u ON u.id = n.user_id
-            WHERE u.username = $1
-            ORDER BY n.id DESC
-            `,
-            [user.username]
-        )
+            SELECT *
+            FROM nutrition
+            WHERE user_id = (SELECT id FROM users WHERE email = $1)
 
+            `,
+            [user.email]
+        )
         return results.rows
     }
 }

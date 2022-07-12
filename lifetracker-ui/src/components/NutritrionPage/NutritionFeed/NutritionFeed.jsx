@@ -1,5 +1,5 @@
 import NutritionCard from "../NutritionCard/NutritionCard"
-
+import "./NutritionFeed.css"
 export default function NutritionFeed(props) {
     // receives nutritions (array of nutrition items)
     // if nutritions is an empty array, it will display a message saying "Nothing here yet"

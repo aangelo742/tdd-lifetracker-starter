@@ -17,9 +17,9 @@ export default function NutritionPage({ user, setUser }) {
     return (
         <div className="NutritionPage">
             <Routes>
-                <Route path="/" element={<NutritionOverview />}/>
-                <Route path="/create" element={<NutritionNew />}/>
-                <Route path="/id/:nutritionId" element={<NutritionDetail />}/>
+                <Route path="/" element={<NutritionOverview user = {user} />}/>
+                <Route path="/create" element={<NutritionNew user = {user} />}/>
+                <Route path="/id/:nutritionId" element={<NutritionDetail user = {user} />}/>
             </Routes>
 
         </div>

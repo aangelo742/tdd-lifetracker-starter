@@ -1,5 +1,6 @@
+import "./NutritionCard.css"
+
 export default function NutritionCard(props) {
-    // props = nutrition
     return (
         <div className="nutrition-card">
             <div className="nutrition-name">

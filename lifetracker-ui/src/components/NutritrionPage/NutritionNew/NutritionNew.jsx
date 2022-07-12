@@ -1,10 +1,11 @@
 import * as React from "react"
 import NutritionForm from "../NutritionForm/NutritionForm"
-import { useState } from "react" 
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import apiClient from "../../../../services/apiClient"
 
 export default function NutritionNew(props) {
-
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({
@@ -33,7 +34,6 @@ export default function NutritionNew(props) {
 
         const { data, error } = await apiClient.createNutritionPost({ name: form.name, category: form.category, quantity: form.quantity, calories: form.calories, imageUrl: form.imageUrl })
         if (data) {
-            addNutritionPost(data.nutritionPost)
             setForm({ 
                 name: "",
                 category: "",
@@ -46,6 +46,7 @@ export default function NutritionNew(props) {
             setErrors(error)
         }
         setIsLoading(false)
+        navigate("/nutrition")
       }
 
     return (

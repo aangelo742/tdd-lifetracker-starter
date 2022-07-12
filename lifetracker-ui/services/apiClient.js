@@ -37,6 +37,10 @@ class ApiClient {
         return await this.request({ endpoint: `nutrition/create`, method: `POST`, data: nutritionPost})
     }
 
+    async listPosts(user) {
+        return await this.request({ endpoint: `nutrition/`, method: `GET`, data: user})
+    }
+
     async fetchUserFromToken() {
         return await this.request({ endpoint: `auth/me`, method: `GET`})
     }
