@@ -4,7 +4,7 @@
 
 Submitted by: **Angelo Alvarado**
 
-Deployed Application: [Lifetracker Deployed Site](http://boorish-quill.surge.sh/)
+Deployed Application: [Lifetracker Deployed Site](http://jolly-cherries.surge.sh/)
 
 ## Application Features
 
