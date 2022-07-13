@@ -4,11 +4,7 @@
 
 Submitted by: **Angelo Alvarado**
 
-<<<<<<< HEAD
 Deployed Application: [Lifetracker Deployed Site](http://billowy-destruction.surge.sh/)
-=======
-Deployed Application: [Lifetracker Deployed Site](http://jolly-cherries.surge.sh/)
->>>>>>> e93682300036fca0c1a5318f6787b3ad32d0344a
 
 ## Application Features
 
