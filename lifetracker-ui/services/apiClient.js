@@ -61,4 +61,4 @@ class ApiClient {
 }
 
 //export default new ApiClient("http://localhost:3001")
-export default new ApiClient("https://lifetracker-angeloa.herokuapp.com")
+export default new ApiClient("https://lifetracker-angelo.herokuapp.com")
